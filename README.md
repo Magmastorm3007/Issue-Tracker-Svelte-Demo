@@ -1,6 +1,6 @@
 # 🛠️ Issue & Insights Tracker
 
-Smakk demo to manage issues, track daily insights, and maintain project visibility — fast, clean, and extensible.
+A small self hosted demo to manage issues, track daily insights, and maintain project visibility — fast, clean, and extensible.
 
 > 💡 *Built with simplicity in mind, but ready for scale.*  
 > Includes demo login and postgres connectivity with tracker table. Google OAuth in backend
@@ -34,49 +34,49 @@ Smakk demo to manage issues, track daily insights, and maintain project visibili
 
 project-root/
 ├── backend/
-│ ├── main.py # FastAPI entrypoint
-│ ├── models.py # SQLAlchemy models
-│ ├── schemas.py # Pydantic validation
-│ ├── crud.py # DB logic
-│ ├── database.py # Session + engine
-│ ├── requirements.txt # Python deps
-│ └── tests/
-│ └── test_main.py # Pytest sample
-│
+│   ├── main.py          # FastAPI entrypoint
+│   ├── models.py        # SQLAlchemy models
+│   ├── schemas.py       # Pydantic validation
+│   ├── crud.py          # DB logic
+│   ├── database.py      # Session + engine
+│   ├── requirements.txt # Python deps
+│   └── tests/
+│       └── test_main.py # Pytest sample
 ├── frontend/
-│ ├── src/
-│ │ ├── App.svelte
-│ │ ├── main.js
-│ │ └── routes/
-│ │ ├── Issues.svelte
-│ │ └── Tracker.svelte
-│ ├── public/
-│ │ └── index.html
-│ ├── package.json
-│ └── vite.config.mjs
-│
+│   ├── src/
+│   │   ├── App.svelte
+│   │   ├── main.js
+│   │   └── routes/
+│   │       ├── Issues.svelte
+│   │       └── Tracker.svelte
+│   ├── public/
+│   │   └── index.html
+│   ├── package.json
+│   └── vite.config.mjs
 ├── docker-compose.yml
 └── README.md
+
 
 
 ---
 
 ## 🧱 Architecture
 
-┌────────────┐ HTTP/API ┌─────────────┐
-│ Svelte │ ─────────────────▶ │ FastAPI │
-│ Frontend │ │ Backend │
-└────────────┘ └────┬────────┘
-│
-▼
-┌────────────┐
-│ PostgreSQL │
-└────────────┘
+┌────────────┐   HTTP/API   ┌─────────────┐
+│  Svelte    │ ───────────▶ │   FastAPI   │
+│ Frontend   │              │  Backend    │
+└────────────┘              └────┬────────┘
+                                 │
+                                 ▼
+                           ┌────────────┐
+                           │ PostgreSQL │
+                           └────────────┘
 
 
 - Frontend calls `/api/*` routes from FastAPI
 - FastAPI uses SQLAlchemy ORM to manage DB
-- Demo login only; no auth backend yet
+-Calls tracker API route for postgres
+- Demo login only; google auth backend is there but not linked to frontend
 
 ---
 
