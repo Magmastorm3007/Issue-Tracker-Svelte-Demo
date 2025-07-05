@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 # Set working directory inside container
 WORKDIR /app
-SEED_ON_STARTUP: 1
+ENV SEED_ON_STARTUP: 1
 
 # Install dependencies
 COPY requirements.txt .
